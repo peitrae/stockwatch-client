@@ -7,6 +7,8 @@ import SignUpOpts from '@/modules/signup/SignUpOpts';
 
 const SignUpPage = styled(Page)`
 	background-color: ${({ theme }) => theme.colors.gray.lightest100};
+	display: flex;
+	flex-direction: column;
 `;
 
 const SignUp: NextPage = () => (

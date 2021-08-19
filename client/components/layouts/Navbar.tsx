@@ -12,7 +12,6 @@ const NavbarWrapper = styled.nav`
 	height: fit-content;
 	background-color: ${({ theme }) => theme.colors.white.default};
 	padding: 13px 48px;
-	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
