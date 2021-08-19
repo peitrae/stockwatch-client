@@ -1,7 +1,7 @@
 import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { FacebookIcon, GoogleIcon } from '@/components/icons';
+import { EnvelopeIcon, FacebookIcon, GoogleIcon } from '@/components/icons';
 import Button from '@/components/inputs/Button';
 import Card from '@/components/layouts/Card';
 import Link from '@/components/typhographies/Link';
@@ -29,8 +29,12 @@ const SignUpCard = styled(Card)`
 `;
 
 const SignUpWrapper = styled.div`
-	max-width: 320px;
-	width: 100%;
+	width: 280px;
+
+	${mediaQueries.xs} {
+    max-width: 280px;
+		width: 100%;
+	}
 `;
 
 const DescriptionWrapper = styled.div`
@@ -43,7 +47,7 @@ const SignUpButton = styled(Button)`
 
 const Line = styled.hr`
 	background-color: ${({ theme }) => theme.colors.secondary.lighter};
-	width: 137px;
+	width: 117px;
 `;
 
 const LoginCSS = (theme: Theme) => css`
@@ -96,7 +100,7 @@ const SignUpOpts: React.FC = () => (
 				<Text css={SecondaryLighterColorCSS}>or</Text>
 				<Line />
 			</Flex>
-			<SignUpButton startIcon={<FacebookIcon />} size="lg">
+			<SignUpButton startIcon={<EnvelopeIcon />} size="lg">
 				Sign Up with Email
 			</SignUpButton>
 		</SignUpWrapper>
