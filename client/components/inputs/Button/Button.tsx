@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
-import { SerializedStyles } from '@emotion/react';
+import { SerializedStyles, Theme } from '@emotion/react';
 
 import mediaQueries from '@/styles/mediaQueries';
 import { BaseButtonProps } from './BaseButton';
 import { BaseButton } from './';
 import { ml10, mr10 } from '@/styles/margin';
+import { ElementType } from 'react';
 
 interface ButtonProps extends BaseButtonProps {
+	as?: ElementType<any>;
+  css?: SerializedStyles | ((theme: Theme) => SerializedStyles);
 	children: React.ReactNode;
 	className?: string;
 	startIcon?: React.ReactNode;
