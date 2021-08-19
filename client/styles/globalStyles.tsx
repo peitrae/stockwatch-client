@@ -5,12 +5,12 @@ const globalStyles = css`
 	body {
 		padding: 0;
 		margin: 0;
-    
 	}
 
 	a {
 		color: inherit;
 		text-decoration: none;
+    cursor: pointer;
 	}
 
 	button {
@@ -19,9 +19,13 @@ const globalStyles = css`
 		cursor: pointer;
 	}
 
+	h1 {
+		margin: 0;
+	}
+
 	* {
 		box-sizing: border-box;
-    font-family: 'Nunito Sans', sans-serif;
+		font-family: 'Nunito Sans', sans-serif;
 	}
 `;
 
