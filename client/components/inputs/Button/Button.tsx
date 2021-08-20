@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import styled from '@emotion/styled';
 import { SerializedStyles, Theme } from '@emotion/react';
 
@@ -6,21 +8,18 @@ import { BaseButtonProps } from './BaseButton';
 import { BaseButton } from './';
 import { ml10, mr10 } from '@/styles/margin';
 import { ElementType } from 'react';
+import TCSSHelper from '@/types/TCSSHelper';
 
 interface ButtonProps extends BaseButtonProps {
 	as?: ElementType<any>;
-  css?: SerializedStyles | ((theme: Theme) => SerializedStyles);
-	children: React.ReactNode;
+	css?: TCSSHelper;
 	className?: string;
 	startIcon?: React.ReactNode;
 	endIcon?: React.ReactNode;
+	onClick: () => void;
 }
 
-interface CSSProps {
-	css?: SerializedStyles;
-}
-
-const IconWrapper = styled.i<CSSProps>`
+const IconWrapper = styled.i`
 	width: 18px;
 	height: 18px;
 
@@ -35,7 +34,7 @@ const IconWrapper = styled.i<CSSProps>`
 	}
 `;
 
-export const Button: React.FC<ButtonProps> = (props) => (
+const Button: React.FC<ButtonProps> = (props) => (
 	<BaseButton as={props.as} href={props.href} {...props}>
 		{props.startIcon && <IconWrapper css={mr10}>{props.startIcon}</IconWrapper>}
 		{props.children}

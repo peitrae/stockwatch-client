@@ -1,18 +1,25 @@
 /** @jsxImportSource @emotion/react */
 
-import { Interpolation, Theme } from '@emotion/react';
+import styled from '@emotion/styled';
 import { default as NextLink, LinkProps as NextLinkProps } from 'next/link';
 
-interface LinkProps extends NextLinkProps {
-	css?: Interpolation<Theme>;
-	className?: string;
-}
+import Text, { IText } from './Text';
 
-const Link: React.FC<LinkProps> = ({ href, css, className, children }) => (
-	<NextLink href={href}>
-		<a css={css} className={className}>
-			{children}
-		</a>
+type TLink = NextLinkProps & IText;
+
+const BaseLink = styled(Text)`
+	color: ${({ theme }) => theme.colors.accentOne.default};
+  
+	&: hover {
+		color: ${({ theme }) => theme.colors.accentOne.darkest};
+	}
+`;
+
+const Link: React.FC<TLink> = (props) => (
+	<NextLink href={props.href} passHref>
+		<BaseLink as="a" {...props}>
+			{props.children}
+		</BaseLink>
 	</NextLink>
 );
 

@@ -8,7 +8,6 @@ import Flex from './Flex';
 import LogoLink from '../ui/LogoLink';
 
 const NavbarWrapper = styled.nav`
-	width: 100vw;
 	height: fit-content;
 	background-color: ${({ theme }) => theme.colors.white.default};
 	padding: 13px 48px;
@@ -30,10 +29,16 @@ export const Navbar = () => {
 		<NavbarWrapper>
 			<LogoLink href="/" iconOnly={isMobileScreen} />
 			<Flex>
-				<Button as="a" href="/login" css={mr16} variant="shadow">
+				<Button
+					as="a"
+					href="/login"
+					css={mr16}
+					variant="shadow"
+					onClick={() => {}}
+				>
 					Login
 				</Button>
-				<Button as="a" href="/signup">
+				<Button as="a" href="/signup" onClick={() => {}}>
 					Get Started
 				</Button>
 			</Flex>
