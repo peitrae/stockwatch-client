@@ -8,7 +8,7 @@ const LogoIcon: React.FC<ILogoIcon> = ({ className = '', iconOnly }) =>
 	iconOnly ? (
 		<>
 			<svg
-				height="inherit"
+				height="100%"
 				viewBox="0 0 34 34"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ const LogoIcon: React.FC<ILogoIcon> = ({ className = '', iconOnly }) =>
 	) : (
 		<>
 			<svg
-				height="inherit"
+				height="100%"
 				viewBox="0 0 158 34"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
