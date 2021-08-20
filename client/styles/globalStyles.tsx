@@ -10,7 +10,7 @@ const globalStyles = css`
 	a {
 		color: inherit;
 		text-decoration: none;
-    cursor: pointer;
+		cursor: pointer;
 	}
 
 	button {
