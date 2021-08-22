@@ -6,6 +6,10 @@ export const mr10 = css`
 	margin-right: 10px;
 `;
 
+export const mr12 = css`
+	margin-right: 12px;
+`;
+
 export const mr16 = css`
 	margin-right: 16px;
 `;

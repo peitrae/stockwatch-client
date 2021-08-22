@@ -1,10 +1,14 @@
+/** @jsxImportSource @emotion/react */
+
 import Link from 'next/link';
 import styled from '@emotion/styled';
 
 import mediaQueries from '@/styles/mediaQueries';
 import { LogoIcon } from '../icons';
+import TCSSHelper from '@/types/TCSSHelper';
 
 interface LogoLinkProps {
+	css?: TCSSHelper;
 	className?: string;
 	href: string;
 	iconOnly?: boolean;
@@ -22,9 +26,14 @@ const LinkWrapper = styled.a`
 	}
 `;
 
-const LogoLink: React.FC<LogoLinkProps> = ({ href, className, iconOnly }) => (
+const LogoLink: React.FC<LogoLinkProps> = ({
+	href,
+	css,
+	className,
+	iconOnly,
+}) => (
 	<Link href={href} passHref>
-		<LinkWrapper className={className}>
+		<LinkWrapper css={css} className={className}>
 			<LogoIcon iconOnly={iconOnly} />
 		</LinkWrapper>
 	</Link>

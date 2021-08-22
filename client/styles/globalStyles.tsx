@@ -23,6 +23,15 @@ const globalStyles = css`
 		margin: 0;
 	}
 
+	li {
+		list-style-type: none;
+	}
+
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+
 	* {
 		box-sizing: border-box;
 		font-family: 'Nunito Sans', sans-serif;

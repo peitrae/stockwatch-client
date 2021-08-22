@@ -1,22 +1,21 @@
 /** @jsxImportSource @emotion/react */
 
+import React from 'react';
 import styled from '@emotion/styled';
-import { SerializedStyles, Theme } from '@emotion/react';
 
 import mediaQueries from '@/styles/mediaQueries';
-import { BaseButtonProps } from './BaseButton';
+import { IBaseButton } from './BaseButton';
 import { BaseButton } from './';
 import { ml10, mr10 } from '@/styles/margin';
 import { ElementType } from 'react';
 import TCSSHelper from '@/types/TCSSHelper';
 
-interface ButtonProps extends BaseButtonProps {
+export interface IButton extends IBaseButton {
 	as?: ElementType<any>;
 	css?: TCSSHelper;
 	className?: string;
 	startIcon?: React.ReactNode;
 	endIcon?: React.ReactNode;
-	onClick: () => void;
 }
 
 const IconWrapper = styled.i`
@@ -34,12 +33,14 @@ const IconWrapper = styled.i`
 	}
 `;
 
-const Button: React.FC<ButtonProps> = (props) => (
-	<BaseButton as={props.as} href={props.href} {...props}>
+const Button: React.FC<IButton> = React.forwardRef((props, ref) => (
+	<BaseButton as={props.as} href={props.href} ref={ref} {...props}>
 		{props.startIcon && <IconWrapper css={mr10}>{props.startIcon}</IconWrapper>}
 		{props.children}
 		{props.endIcon && <IconWrapper css={ml10}>{props.endIcon}</IconWrapper>}
 	</BaseButton>
-);
+));
+
+Button.displayName = 'Button';
 
 export default Button;
