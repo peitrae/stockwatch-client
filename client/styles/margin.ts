@@ -2,6 +2,10 @@ import { css } from '@emotion/react';
 
 // Right
 
+export const mr8 = css`
+	margin-right: 8px;
+`;
+
 export const mr10 = css`
 	margin-right: 10px;
 `;

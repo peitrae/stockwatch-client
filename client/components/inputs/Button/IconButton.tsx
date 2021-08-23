@@ -1,3 +1,4 @@
+import mediaQueries from '@/styles/mediaQueries';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -16,6 +17,12 @@ const mdWidth = css`
 		width: 20px;
 		height: 20px;
 	}
+
+	${mediaQueries.xs} {
+		height: 44px;
+		width: 44px;
+		padding: 12px;
+	}
 `;
 
 const buttonWidth = {
@@ -23,14 +30,8 @@ const buttonWidth = {
 	md: mdWidth,
 };
 
-const IconBaseButton = styled(BaseButton)`
+const IconButton = styled(BaseButton)`
 	${({ size = 'md' }) => buttonWidth[size]}
 `;
 
-const IconButton: React.FC<IBaseButton> = ({ variant, children, onClick }) => (
-	<IconBaseButton variant={variant} onClick={onClick}>
-		{children}
-	</IconBaseButton>
-);
-
-export default IconBaseButton;
+export default IconButton;

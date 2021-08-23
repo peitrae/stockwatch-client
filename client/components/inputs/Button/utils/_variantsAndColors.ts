@@ -70,7 +70,7 @@ const textSecondary = ({ theme }: ThemeProps) => css`
 	stroke: ${theme.colors.gray.darker};
 
 	&:hover {
-		background-color: ${theme.colors.gray.darkest};
+		background-color: ${theme.colors.gray.lightest200};
 	}
 `;
 
