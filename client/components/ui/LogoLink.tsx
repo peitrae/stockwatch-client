@@ -22,7 +22,7 @@ const LinkWrapper = styled.a`
 	}
 
 	${mediaQueries.xs} {
-		height: 48px;
+		height: 44px;
 	}
 `;
 
