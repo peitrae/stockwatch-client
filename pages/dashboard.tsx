@@ -11,7 +11,7 @@ const Dashboard: NextPage = () => {
 	const toggleExpandSidebar = () => setIsExpanded(!isExpanded);
 
 	return (
-		<Page>
+		<Page data-testid="dashboard-page">
 			<Sidebar isExpanded={isExpanded} menuOnClick={toggleExpandSidebar} />
 			<AuthenticatedNavbar menuOnClick={toggleExpandSidebar} />
 		</Page>

@@ -5,6 +5,7 @@ import Button from '@/components/inputs/Button';
 import Card from '@/components/layouts/Card';
 import mediaQueries from '@/styles/mediaQueries';
 import Text from '@/components/typhographies/Text';
+import Overlay from '@/components/layouts/Overlay';
 
 const AuthCard = styled(Card)`
 	position: relative;
@@ -24,11 +25,15 @@ const AuthCard = styled(Card)`
 	}
 `;
 
+const AuthOverlay = styled(Overlay)`
+	border-radius: 12px;
+`;
+
 const AuthInnerWrapper = styled.div`
-	width: 280px;
+	width: 300px;
 
 	${mediaQueries.xs} {
-		max-width: 280px;
+		max-width: 300px;
 		width: 100%;
 	}
 `;
@@ -40,7 +45,7 @@ const AuthDescriptionWrapper = styled.div`
 const AuthError = styled(Text)`
 	font-size: 12px;
 	display: block;
-  text-align: center;
+	text-align: center;
 `;
 
 const AuthButton = styled(Button)`
@@ -76,8 +81,15 @@ const AuthFacebookCSS = css`
 	}
 `;
 
+const AuthLoadingCSS = css`
+	top: 0px;
+  border-radius: 50px 50px 0 0;
+  z-index: 10;
+`;
+
 export const Auth = {
 	Card: AuthCard,
+	Overlay: AuthOverlay,
 	InnerWrapper: AuthInnerWrapper,
 	DescriptionWrapper: AuthDescriptionWrapper,
 	Error: AuthError,
@@ -86,6 +98,7 @@ export const Auth = {
 };
 
 export const AuthCSS = {
+	loading: AuthLoadingCSS,
 	secondaryDarkestColor: AuthSecondaryDarkestColorCSS,
 	secondaryLighterColor: AuthSecondaryLighterColorCSS,
 	google: AuthGoogleCSS,

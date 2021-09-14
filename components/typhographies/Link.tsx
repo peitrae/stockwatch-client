@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import styled from '@emotion/styled';
 import { default as NextLink, LinkProps as NextLinkProps } from 'next/link';
 

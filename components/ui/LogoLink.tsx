@@ -33,7 +33,7 @@ const LogoLink: React.FC<LogoLinkProps> = ({
 	iconOnly,
 }) => (
 	<Link href={href} passHref>
-		<LinkWrapper css={css} className={className}>
+		<LinkWrapper aria-label="Logo" css={css} className={className}>
 			<LogoIcon iconOnly={iconOnly} />
 		</LinkWrapper>
 	</Link>
