@@ -1,3 +1,4 @@
+import { SyntheticEvent } from 'react';
 import styled from '@emotion/styled';
 
 import contentAlign from './utils/_contentAlign';
@@ -11,7 +12,7 @@ export interface IBaseButton {
 	variant?: 'solid' | 'shadow' | 'text';
 	color?: 'primary' | 'secondary';
 	align?: 'left' | 'center' | 'right';
-	onClick?: () => void;
+	onClick?: (e: SyntheticEvent) => Promise<void> | void;
 }
 
 const BaseButton = styled.button<IBaseButton>`

@@ -1,5 +1,17 @@
 import { css } from '@emotion/react';
 
+// Left
+
+export const ml10 = css`
+	margin-left: 10px;
+`;
+
+// Top
+
+export const mt6 = css`
+	margin-top: 6px;
+`;
+
 // Right
 
 export const mr8 = css`
@@ -20,18 +32,16 @@ export const mr16 = css`
 
 // Bottom
 
+export const mb6 = css`
+	margin-bottom: 6px;
+`;
+
 export const mb16 = css`
 	margin-bottom: 16px;
 `;
 
 export const mb32 = css`
 	margin-bottom: 32px;
-`;
-
-// Left
-
-export const ml10 = css`
-	margin-left: 10px;
 `;
 
 // Vertical

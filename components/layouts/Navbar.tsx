@@ -2,6 +2,7 @@
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import Link from 'next/link';
 
 import mediaQueries from '@/styles/mediaQueries';
 import { mr16, mr8 } from '@/styles/margin';
@@ -11,6 +12,7 @@ import Flex from './Flex';
 import LogoLink from '../ui/LogoLink';
 import IconButton from '../inputs/Button/IconButton';
 import { MenuIcon, SearchIcon, UserIcon } from '../icons';
+
 
 interface IAuthenticatedNavbar {
 	menuOnClick: () => void;
@@ -24,7 +26,7 @@ const BaseNavbarWrapper = styled.nav`
 `;
 
 const NavbarWrapper = styled(BaseNavbarWrapper)`
-	height: fit-content;
+	height: min-content;
 	padding: 13px 48px;
 	box-shadow: ${({ theme }) => theme.elevations.one};
 
@@ -67,18 +69,14 @@ export const Navbar = () => {
 		<NavbarWrapper>
 			<LogoLink href="/" iconOnly={isMobileScreen} />
 			<Flex>
-				<Button
-					as="a"
-					href="/login"
-					css={mr16}
-					variant="shadow"
-					onClick={() => {}}
-				>
-					Login
-				</Button>
-				<Button as="a" href="/signup" onClick={() => {}}>
-					Get Started
-				</Button>
+				<Link href="/login" passHref>
+					<Button as="a" css={mr16} variant="shadow">
+						Login
+					</Button>
+				</Link>
+				<Link href="/signup" passHref>
+					<Button as="a">Get Started</Button>
+				</Link>
 			</Flex>
 		</NavbarWrapper>
 	);

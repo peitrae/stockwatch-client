@@ -1,34 +1,38 @@
 /** @jsxImportSource @emotion/react */
 
+import { ChangeEvent } from 'react';
 import styled from '@emotion/styled';
 
 import TCSSHelper from '@/types/TCSSHelper';
 import Text from '../../typhographies/Text';
 import { size, colors } from './styles';
+import { mb6, mt6 } from '@/styles/margin';
 
 interface IInput {
 	css?: TCSSHelper;
 	type?: 'text' | 'email' | 'password';
 	inputSize?: 'md' | 'lg';
-	inputColor?: 'secondary';
+	inputColor?: 'secondary' | 'danger';
 }
 
 interface ITextInput extends IInput {
 	label: string;
 	id: string;
+	name?: string;
 	placeholder: string;
 	className?: string;
+	value: string;
+	error?: string | null;
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Label = styled(Text)`
+const SmallText = styled(Text)`
 	display: block;
 	font-size: 12px;
-	margin-bottom: 6px;
-	width: fit-content;
+	width: max-content;
 `;
 
 const Input = styled.input<IInput>`
-	border: 1px solid ${({ theme }) => theme.colors.secondary.lightest100};
 	color: ${({ theme }) => theme.colors.secondary.darker};
 	background-color: ${({ theme }) => theme.colors.gray.lightest300};
 	font-size: 16px;
@@ -44,11 +48,6 @@ const Input = styled.input<IInput>`
 		font-weight: 400;
 	}
 
-	&:hover {
-		border: 1px solid ${({ theme }) => theme.colors.secondary.lighter};
-		background-color: ${({ theme }) => theme.colors.gray.lightest200};
-	}
-
 	&:focus {
 		outline: none;
 	}
@@ -57,26 +56,38 @@ const Input = styled.input<IInput>`
 const TextInput: React.FC<ITextInput> = ({
 	label,
 	id,
+	name,
 	className,
 	css,
 	inputSize = 'md',
 	type = 'text',
 	placeholder = '',
 	inputColor = 'secondary',
+	value,
+	error,
+	onChange,
 }) => (
 	<div css={css} className={className}>
 		{label && (
-			<Label as="label" type="sans" htmlFor={id}>
+			<SmallText css={mb6} as="label" type="sans" htmlFor={id}>
 				{label}
-			</Label>
+			</SmallText>
 		)}
 		<Input
 			type={type}
 			id={id}
+			name={name}
 			placeholder={placeholder}
 			inputSize={inputSize}
-			inputColor={inputColor}
+			inputColor={error ? 'danger' : inputColor}
+			value={value}
+			onChange={onChange}
 		/>
+		{error && (
+			<SmallText css={mt6} color="danger">
+				{error}
+			</SmallText>
+		)}
 	</div>
 );
 

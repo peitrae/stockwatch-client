@@ -10,7 +10,7 @@ interface ISignUpOpts {
 }
 
 const SignUpOpts: React.FC<ISignUpOpts> = ({ withEmailOnClick }) => (
-	<Auth.Card>
+	<Auth.Card data-testid="signup-opts">
 		<Auth.InnerWrapper>
 			<Text as="h1" type="sans-serif">
 				Sign Up
@@ -27,7 +27,6 @@ const SignUpOpts: React.FC<ISignUpOpts> = ({ withEmailOnClick }) => (
 				css={[AuthCSS.google, mb16]}
 				startIcon={<GoogleIcon />}
 				size="lg"
-				onClick={() => {}}
 			>
 				Sign Up with Google
 			</Auth.Button>
@@ -35,7 +34,6 @@ const SignUpOpts: React.FC<ISignUpOpts> = ({ withEmailOnClick }) => (
 				css={AuthCSS.facebook}
 				startIcon={<FacebookIcon />}
 				size="lg"
-				onClick={() => {}}
 			>
 				Sign Up with Facebook
 			</Auth.Button>
