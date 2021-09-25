@@ -21,9 +21,9 @@ interface ITextInput extends IInput {
 	name?: string;
 	placeholder: string;
 	className?: string;
-	value: string;
+	value?: string;
 	error?: string | null;
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SmallText = styled(Text)`
@@ -63,9 +63,9 @@ const TextInput: React.FC<ITextInput> = ({
 	type = 'text',
 	placeholder = '',
 	inputColor = 'secondary',
-	value,
+	value = "",
 	error,
-	onChange,
+	onChange = () => {},
 }) => (
 	<div css={css} className={className}>
 		{label && (

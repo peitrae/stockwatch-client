@@ -2,7 +2,7 @@ import IErrorRes from '@/types/IErrorRes';
 import { createReducer } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 
-import { register } from '../actions/user';
+import { register, login } from '../actions/user';
 
 export interface IUserState {
 	data: {
@@ -13,7 +13,7 @@ export interface IUserState {
 		email: string | null;
 	};
 	loading: boolean;
-	error: null | IErrorRes | AxiosError;
+	error?: IErrorRes | AxiosError;
 }
 
 const initialState: IUserState = {
@@ -25,7 +25,7 @@ const initialState: IUserState = {
 		email: null,
 	},
 	loading: false,
-	error: null,
+	error: undefined,
 };
 
 const userReducer = createReducer(initialState, (builder) => {
@@ -36,9 +36,22 @@ const userReducer = createReducer(initialState, (builder) => {
 		.addCase(register.fulfilled, (state, { payload }) => {
 			state.data = payload;
 			state.loading = false;
-			state.error = null;
+			state.error = undefined;
 		})
 		.addCase(register.rejected, (state, { payload }) => {
+			state.loading = false;
+			state.error = payload as IErrorRes | AxiosError;
+		})
+		.addCase(login.fulfilled, (state, { payload }) => {
+			state.data = { ...state.data, ...payload };
+			state.loading = false;
+			state.error = undefined;
+		})
+		.addCase(login.pending, (state) => {
+			state.loading = true;
+			state.error = undefined;
+		})
+		.addCase(login.rejected, (state, { payload }) => {
 			state.loading = false;
 			state.error = payload as IErrorRes | AxiosError;
 		});
