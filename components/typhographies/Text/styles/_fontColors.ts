@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 
-import IThemeHelper from '@/types/IThemeHelper';
+import { Theme } from '@/types/style';
 
-const secondaryColor = ({ theme }: IThemeHelper) => css`
+const secondaryColor = ({ theme }: Theme) => css`
 	color: ${theme.colors.secondary.darkest};
 `;
 
-const dangerColor = ({ theme }: IThemeHelper) => css`
+const dangerColor = ({ theme }: Theme) => css`
 	color: ${theme.colors.red.default};
 `;
 

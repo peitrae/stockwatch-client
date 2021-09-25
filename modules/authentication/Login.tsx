@@ -11,13 +11,12 @@ import Auth, { AuthCSS } from './_Auth';
 import { GoogleIcon, FacebookIcon } from '@/components/icons';
 import Flex from '@/components/layouts/Flex';
 import validateLogin from './utils/validateLogin';
-import { UserLoginData, UserLoginForm } from '@/types/authentication';
-import IErrorRes from '@/types/IErrorRes';
 import ProgressIndeterminate from '@/components/ui/ProgressIndeterminate';
+import { UserLoginData, UserLoginForm, ErrorRes } from '@/types';
 
 export interface LoginProps {
 	isLoading: boolean;
-	error?: IErrorRes | AxiosError;
+	error?: ErrorRes | AxiosError;
 	onSubmit: (user: UserLoginData) => void;
 }
 

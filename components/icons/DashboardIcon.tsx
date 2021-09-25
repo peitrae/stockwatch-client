@@ -1,6 +1,6 @@
-import { IIconMultiVariant } from '@/types/IIcon';
+import { IconMultiVariantProps } from '@/types';
 
-const DashboardIcon: React.FC<IIconMultiVariant> = ({
+const DashboardIcon: React.FC<IconMultiVariantProps> = ({
 	className = '',
 	variant = 'solid',
 }) =>

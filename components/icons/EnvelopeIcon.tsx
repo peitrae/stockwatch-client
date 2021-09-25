@@ -1,10 +1,11 @@
-import IIcon from '@/types/IIcon';
+import { IconProps } from '@/types';
 
-const EnvelopeIcon: React.FC<IIcon> = ({ className = '' }) => (
+const EnvelopeIcon: React.FC<IconProps> = ({ className = '' }) => (
 	<svg
 		viewBox="0 0 24 24"
 		fill="inherit"
 		xmlns="http://www.w3.org/2000/svg"
+		className={className}
 	>
 		<path
 			fillRule="evenodd"

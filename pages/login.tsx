@@ -9,7 +9,7 @@ import useAppSelector from '@/hooks/useAppSelector';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import { login } from '@/store/actions/user';
 import { userSelector } from '@/store/selectors/user';
-import { UserLoginData } from '@/types/authentication';
+import { UserLoginData } from '@/types';
 
 const LoginPage = styled(Page)`
 	background-color: ${({ theme }) => theme.colors.gray.lightest100};

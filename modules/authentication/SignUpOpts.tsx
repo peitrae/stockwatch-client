@@ -5,11 +5,11 @@ import Flex from '@/components/layouts/Flex';
 import { mb16, my24 } from '@/styles/margin';
 import Auth, { AuthCSS } from './_Auth';
 
-interface ISignUpOpts {
+interface SignUpOptsProps {
 	withEmailOnClick: () => void;
 }
 
-const SignUpOpts: React.FC<ISignUpOpts> = ({ withEmailOnClick }) => (
+const SignUpOpts: React.FC<SignUpOptsProps> = ({ withEmailOnClick }) => (
 	<Auth.Card data-testid="signup-opts">
 		<Auth.InnerWrapper>
 			<Text as="h1" type="sans-serif">

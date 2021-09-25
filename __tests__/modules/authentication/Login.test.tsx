@@ -3,13 +3,12 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { AxiosError } from 'axios';
 
 import Login, { LoginProps } from '@/modules/authentication/Login';
-import IErrorRes from '@/types/IErrorRes';
-import { UserLoginData } from '@/types/authentication';
 import { generateRandomEmail, generateRandomString } from '@/test/utils';
+import { UserLoginData, ErrorRes } from '@/types';
 
 interface LoginTestProps {
 	isLoading?: boolean;
-	error?: IErrorRes | AxiosError;
+	error?: ErrorRes | AxiosError;
 	onSubmit?: (user: UserLoginData) => void;
 }
 

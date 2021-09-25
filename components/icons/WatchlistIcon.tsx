@@ -1,6 +1,6 @@
-import { IIconMultiVariant } from '@/types/IIcon';
+import { IconMultiVariantProps } from '@/types';
 
-const WatchlistIcon: React.FC<IIconMultiVariant> = ({
+const WatchlistIcon: React.FC<IconMultiVariantProps> = ({
 	variant = 'solid',
 	className,
 }) =>

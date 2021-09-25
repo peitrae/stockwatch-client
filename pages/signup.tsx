@@ -8,11 +8,11 @@ import Page from '@/components/layouts/Page';
 import Navbar from '@/components/layouts/Navbar';
 import SignUpOpts from '@/modules/authentication/SignUpOpts';
 import SignUpEmail from '@/modules/authentication/SignUpEmail';
-import { IUserSignUpData } from '@/types/authentication/signup';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import { register } from '@/store/actions/user';
 import useAppSelector from '@/hooks/useAppSelector';
 import { userSelector } from '@/store/selectors/user';
+import { UserSignUpData } from '@/types';
 
 const SignUpPage = styled(Page)`
 	background-color: ${({ theme }) => theme.colors.gray.lightest100};
@@ -32,7 +32,7 @@ const SignUp: NextPage = () => {
 		return setIsShowSignUpWithEmail(!isShowSignUpWithEmail);
 	};
 
-	const onSubmitSignupEmail = (userData: IUserSignUpData) => {
+	const onSubmitSignupEmail = (userData: UserSignUpData) => {
 		dispatch(
 			register({
 				name: userData.name,

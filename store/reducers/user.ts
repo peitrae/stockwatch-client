@@ -1,7 +1,7 @@
-import IErrorRes from '@/types/IErrorRes';
-import { createReducer } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
+import { createReducer } from '@reduxjs/toolkit';
 
+import { ErrorRes } from '@/types';
 import { register, login } from '../actions/user';
 
 export interface IUserState {
@@ -13,7 +13,7 @@ export interface IUserState {
 		email: string | null;
 	};
 	loading: boolean;
-	error?: IErrorRes | AxiosError;
+	error?: ErrorRes | AxiosError;
 }
 
 const initialState: IUserState = {
@@ -40,7 +40,7 @@ const userReducer = createReducer(initialState, (builder) => {
 		})
 		.addCase(register.rejected, (state, { payload }) => {
 			state.loading = false;
-			state.error = payload as IErrorRes | AxiosError;
+			state.error = payload as ErrorRes | AxiosError;
 		})
 		.addCase(login.fulfilled, (state, { payload }) => {
 			state.data = { ...state.data, ...payload };
@@ -53,7 +53,7 @@ const userReducer = createReducer(initialState, (builder) => {
 		})
 		.addCase(login.rejected, (state, { payload }) => {
 			state.loading = false;
-			state.error = payload as IErrorRes | AxiosError;
+			state.error = payload as ErrorRes | AxiosError;
 		});
 });
 

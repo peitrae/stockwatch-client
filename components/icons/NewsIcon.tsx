@@ -1,6 +1,6 @@
-import { IIconMultiVariant } from '@/types/IIcon';
+import { IconMultiVariantProps } from '@/types';
 
-const NewsIcon: React.FC<IIconMultiVariant> = ({ variant = 'solid', className = '' }) =>
+const NewsIcon: React.FC<IconMultiVariantProps> = ({ variant = 'solid', className = '' }) =>
 	variant === 'solid' ? (
 		<svg
 			width="24"

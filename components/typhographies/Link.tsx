@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { default as NextLink, LinkProps as NextLinkProps } from 'next/link';
 
-import Text, { IText } from './Text';
+import Text, { TextProps } from './Text';
 
-type TLink = NextLinkProps & IText;
+type TLink = NextLinkProps & TextProps;
 
 const BaseLink = styled(Text)`
 	color: ${({ theme }) => theme.colors.accentOne.default};

@@ -1,6 +1,6 @@
-import IIcon from '@/types/IIcon';
+import { IconProps } from '@/types';
 
-const UserIcon: React.FC<IIcon> = ({ className }) => (
+const UserIcon: React.FC<IconProps> = ({ className }) => (
 	<svg
 		width="24"
 		height="24"

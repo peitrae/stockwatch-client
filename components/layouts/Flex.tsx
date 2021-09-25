@@ -1,7 +1,7 @@
 import { SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
-interface IFlex {
+interface FlexProps {
 	css?: SerializedStyles;
 	justifyContent?:
 		| 'flex-start'
@@ -15,7 +15,7 @@ interface IFlex {
 	alignItems?: 'strech' | 'center' | 'start' | 'end';
 }
 
-const Flex = styled.div<IFlex>`
+const Flex = styled.div<FlexProps>`
 	display: flex;
 	justify-content: ${({ justifyContent = 'flex-start' }) => justifyContent};
 	align-items: ${({ alignItems = 'strech' }) => alignItems};

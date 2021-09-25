@@ -1,4 +1,4 @@
-import { UserLoginData } from '@/types/authentication';
+import { UserLoginData } from '@/types';
 import isEmail from '@/utils/isEmail';
 
 const validateLogin = (data: UserLoginData) => {

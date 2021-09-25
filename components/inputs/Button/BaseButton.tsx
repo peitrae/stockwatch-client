@@ -5,7 +5,7 @@ import contentAlign from './utils/_contentAlign';
 import buttonSize from './utils/_size';
 import variantsAndColors from './utils/_variantsAndColors';
 
-export interface IBaseButton {
+export interface BaseButtonProps {
 	href?: string;
 	ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
 	size?: 'md' | 'lg';
@@ -15,7 +15,7 @@ export interface IBaseButton {
 	onClick?: (e: SyntheticEvent) => Promise<void> | void;
 }
 
-const BaseButton = styled.button<IBaseButton>`
+const BaseButton = styled.button<BaseButtonProps>`
 	font-family: 'Nunito', sans-serif;
 	font-size: 16px;
 	display: flex;

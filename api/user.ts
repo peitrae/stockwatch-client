@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-import { IUserSignUpData } from '@/types/authentication/signup';
 import generateResponseError from '@/utils/generateResponseError';
-import { UserLoginData } from '@/types/authentication';
+import { UserSignUpData, UserLoginData } from '@/types';
 
-export const register = async (userData: IUserSignUpData) => {
+export const register = async (userData: UserSignUpData) => {
 	const url = `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/user/signup`;
 
 	try {

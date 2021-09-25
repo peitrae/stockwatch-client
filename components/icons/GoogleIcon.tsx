@@ -1,6 +1,6 @@
-import IIcon from '../../types/IIcon';
+import { IconProps } from '@/types';
 
-const GoogleIcon: React.FC<IIcon> = ({ className = '' }) => (
+const GoogleIcon: React.FC<IconProps> = ({ className = '' }) => (
 	<svg
 		width="24"
 		height="24"

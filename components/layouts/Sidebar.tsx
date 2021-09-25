@@ -2,39 +2,39 @@
 
 import { default as NextLink } from 'next/link';
 import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 
 import mediaQueries from '@/styles/mediaQueries';
-import styled from '@emotion/styled';
 import Stack from './Stack';
 import Overlay from './Overlay';
 import IconButton from '../inputs/Button/IconButton';
 import { DashboardIcon, MenuIcon, NewsIcon, WatchlistIcon } from '../icons';
 import LogoLink from '../ui/LogoLink';
-import { IIconMultiVariant } from '@/types/IIcon';
 import Button from '../inputs/Button';
 import { mr12 } from '@/styles/margin';
 import Text from '../typhographies/Text';
 import Flex from './Flex';
+import { IconMultiVariantProps } from '@/types';
 
-interface ISidebarStyle {
+interface SidebarWrapperProps {
 	isExpanded: boolean;
 }
 
-interface ISidebar extends ISidebarStyle {
+interface SidebarProps extends SidebarWrapperProps {
 	menuOnClick: () => void;
 }
 
-interface INavLinkStyle {
+interface NavLinkBaseProps {
 	isActive?: boolean;
 	isShowLabel?: boolean;
 }
 
-interface INavLink extends INavLinkStyle {
+interface NavLinkProps extends NavLinkBaseProps {
 	href: string;
-	leftIcon: React.FC<IIconMultiVariant>;
+	leftIcon: React.FC<IconMultiVariantProps>;
 }
 
-const SidebarWrapper = styled.aside<ISidebarStyle>`
+const SidebarWrapper = styled.aside<SidebarWrapperProps>`
 	width: ${({ isExpanded }) => (isExpanded ? 'fit-content' : '68px')};
 	height: 100vh;
 	padding: 0 12px;
@@ -93,7 +93,7 @@ const NavBaseLink = styled(Button)`
 	}
 `;
 
-const NavBaseLinkIconWrapper = styled.i<INavLinkStyle>`
+const NavBaseLinkIconWrapper = styled.i<NavLinkBaseProps>`
 	width: 38px;
 	height: 38px;
 	display: flex;
@@ -110,7 +110,7 @@ const NavBaseLinkIconWrapper = styled.i<INavLinkStyle>`
 	}
 `;
 
-const NavBaseLinkLabel = styled(Text)<INavLinkStyle>`
+const NavBaseLinkLabel = styled(Text)<NavLinkBaseProps>`
 	color: inherit;
 	margin-left: 10px;
 	display: ${({ isShowLabel }) => (isShowLabel ? 'block' : 'none')};
@@ -120,7 +120,7 @@ const NavBaseLinkLabel = styled(Text)<INavLinkStyle>`
 	}
 `;
 
-const NavLink: React.FC<INavLink> = ({
+const NavLink: React.FC<NavLinkProps> = ({
 	href,
 	leftIcon: LeftIcon,
 	children,
@@ -163,7 +163,7 @@ const navMenu = [
 	},
 ];
 
-const Sidebar: React.FC<ISidebar> = ({ isExpanded, menuOnClick }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isExpanded, menuOnClick }) => {
 	const { pathname } = useRouter();
 
 	return (

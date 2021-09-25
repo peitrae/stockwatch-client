@@ -5,13 +5,13 @@ import { GlobalWrapper } from '@/pages/_app';
 import SignUpEmail from '@/modules/authentication/SignUpEmail';
 import { generateRandomEmail, generateRandomString } from '@/test/utils';
 import { ISignUpEmail } from '@/modules/authentication/SignUpEmail';
-import IErrorRes from '@/types/IErrorRes';
+import { ErrorRes } from '@/types';
 
 jest.mock('@/api/user');
 
 interface IRenderSignUpEmail {
 	isLoading?: boolean;
-	error?: IErrorRes | AxiosError<any> | null;
+	error?: ErrorRes | AxiosError<any> | null;
 	onSubmit?: jest.Mock;
 	anotherMethodsOnClick?: jest.Mock;
 }

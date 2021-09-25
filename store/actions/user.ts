@@ -1,12 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { IUserSignUpData } from '@/types/authentication/signup';
 import userAPI from '@/api/user';
-import { UserLoginData } from '@/types/authentication';
+import { UserSignUpData, UserLoginData } from '@/types';
 
 export const register = createAsyncThunk(
 	'user/register',
-	async (userData: IUserSignUpData, { rejectWithValue }) => {
+	async (userData: UserSignUpData, { rejectWithValue }) => {
 		try {
 			const { data } = await userAPI.register(userData);
 

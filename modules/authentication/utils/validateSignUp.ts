@@ -1,10 +1,7 @@
-import {
-	IUserSignUpFormData,
-	TUserSignUpFormError,
-} from '@/types/authentication/signup';
+import { UserSignUpFormData, UserSignUpFormError } from '@/types';
 
-const validateSignUp = (data: IUserSignUpFormData) => {
-	let validationError: TUserSignUpFormError = {
+const validateSignUp = (data: UserSignUpFormData) => {
+	let validationError: UserSignUpFormError = {
 		name: null,
 		email: null,
 		password: null,
