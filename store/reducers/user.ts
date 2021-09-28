@@ -8,6 +8,7 @@ export interface IUserState {
 	data: {
 		token: string | null;
 		refreshToken: string | null;
+		expiresIn: number;
 		localId: string | null;
 		name: string | null;
 		email: string | null;
@@ -16,10 +17,11 @@ export interface IUserState {
 	error?: ErrorRes | AxiosError;
 }
 
-const initialState: IUserState = {
+export const initialState: IUserState = {
 	data: {
 		token: null,
 		refreshToken: null,
+		expiresIn: 0,
 		localId: null,
 		name: null,
 		email: null,
