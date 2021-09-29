@@ -1,6 +1,6 @@
-import IIcon from '@/types/IIcon';
+import { IconProps } from '@/types';
 
-const FacebookIcon: React.FC<IIcon> = ({ className = '' }) => (
+const FacebookIcon: React.FC<IconProps> = ({ className = '' }) => (
 	<svg
 		width="24"
 		height="24"

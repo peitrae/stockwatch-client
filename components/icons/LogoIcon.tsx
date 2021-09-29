@@ -1,10 +1,10 @@
-import IIcon from '@/types/IIcon';
+import { IconProps } from '@/types';
 
-interface ILogoIcon extends IIcon {
+interface LogoIconProps extends IconProps {
 	iconOnly?: boolean;
 }
 
-const LogoIcon: React.FC<ILogoIcon> = ({ className = '', iconOnly }) =>
+const LogoIcon: React.FC<LogoIconProps> = ({ className = '', iconOnly }) =>
 	iconOnly ? (
 		<>
 			<svg

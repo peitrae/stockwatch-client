@@ -9,28 +9,23 @@ import TextInput from '@/components/inputs/TextInput';
 import ProgressIndeterminate from '@/components/ui/ProgressIndeterminate';
 import { mb16, mb32 } from '@/styles/margin';
 import Auth, { AuthCSS } from './_Auth';
-
 import validateSignUp from './utils/validateSignUp';
-import {
-	IUserSignUpData,
-	IUserSignUpForm,
-} from '@/types/authentication/signup';
-import IErrorRes from '@/types/IErrorRes';
+import { UserSignUpData, UserSignUpForm, ErrorRes } from '@/types';
 
-export interface ISignUpEmail {
+export interface SignUpEmailProps {
 	isLoading: boolean;
-	error?: IErrorRes | AxiosError | null;
-	onSubmit: (userData: IUserSignUpData) => void;
+	error?: ErrorRes | AxiosError | null;
+	onSubmit: (userData: UserSignUpData) => void;
 	anotherMethodsOnClick: () => void;
 }
 
-const SignUpEmail: React.FC<ISignUpEmail> = ({
+const SignUpEmail: React.FC<SignUpEmailProps> = ({
 	isLoading,
 	error,
 	onSubmit,
 	anotherMethodsOnClick,
 }) => {
-	const [form, setForm] = useState<IUserSignUpForm>({
+	const [form, setForm] = useState<UserSignUpForm>({
 		data: {
 			name: '',
 			email: '',

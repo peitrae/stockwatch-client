@@ -14,7 +14,7 @@ import IconButton from '../inputs/Button/IconButton';
 import { MenuIcon, SearchIcon, UserIcon } from '../icons';
 
 
-interface IAuthenticatedNavbar {
+interface AuthenticatedNavbarProps {
 	menuOnClick: () => void;
 }
 
@@ -82,7 +82,7 @@ export const Navbar = () => {
 	);
 };
 
-export const AuthenticatedNavbar: React.FC<IAuthenticatedNavbar> = ({
+export const AuthenticatedNavbar: React.FC<AuthenticatedNavbarProps> = ({
 	menuOnClick,
 }) => (
 	<AuthenticatedNavbarWrapper>

@@ -2,7 +2,7 @@ import mediaQueries from '@/styles/mediaQueries';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import BaseButton, { IBaseButton } from './BaseButton';
+import BaseButton from './BaseButton';
 
 const lgWidth = css`
 	width: 44px;

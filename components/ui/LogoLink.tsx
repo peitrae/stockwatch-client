@@ -5,10 +5,10 @@ import styled from '@emotion/styled';
 
 import mediaQueries from '@/styles/mediaQueries';
 import { LogoIcon } from '../icons';
-import TCSSHelper from '@/types/TCSSHelper';
+import { CSS } from '@/types/style';
 
 interface LogoLinkProps {
-	css?: TCSSHelper;
+	css?: CSS;
 	className?: string;
 	href: string;
 	iconOnly?: boolean;

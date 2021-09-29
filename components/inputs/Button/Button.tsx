@@ -4,15 +4,15 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import mediaQueries from '@/styles/mediaQueries';
-import { IBaseButton } from './BaseButton';
+import { BaseButtonProps } from './BaseButton';
 import { BaseButton } from './';
 import { ml10, mr10 } from '@/styles/margin';
 import { ElementType } from 'react';
-import TCSSHelper from '@/types/TCSSHelper';
+import { CSS } from '@/types/style';
 
-export interface IButton extends IBaseButton {
+export interface ButtonProps extends BaseButtonProps {
 	as?: ElementType<any>;
-	css?: TCSSHelper;
+	css?: CSS;
 	className?: string;
 	startIcon?: React.ReactNode;
 	endIcon?: React.ReactNode;
@@ -33,7 +33,7 @@ const IconWrapper = styled.i`
 	}
 `;
 
-const Button: React.FC<IButton> = React.forwardRef((props, ref) => (
+const Button: React.FC<ButtonProps> = React.forwardRef((props, ref) => (
 	<BaseButton as={props.as} href={props.href} ref={ref} {...props}>
 		{props.startIcon && <IconWrapper css={mr10}>{props.startIcon}</IconWrapper>}
 		{props.children}

@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 
-import IThemeHelper from '@/types/IThemeHelper';
+import { Theme } from '@/types/style';
 
-const secondary = ({ theme }: IThemeHelper) => css`
+const secondary = ({ theme }: Theme) => css`
 	border: 1px solid ${theme.colors.secondary.lightest100};
 
 	&:hover {
@@ -17,7 +17,7 @@ const secondary = ({ theme }: IThemeHelper) => css`
 	}
 `;
 
-const danger = ({ theme }: IThemeHelper) => css`
+const danger = ({ theme }: Theme) => css`
 	border: 1px solid ${theme.colors.red.default};
 
 	&:hover {

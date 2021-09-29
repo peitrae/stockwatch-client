@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
-import TCSSHelper from '@/types/TCSSHelper';
+import React from 'react';
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import React from 'react';
 
-interface IProgressIndeterminate {
-	css?: TCSSHelper;
+import { CSS } from '@/types/style';
+
+interface ProgressIndeterminateProps {
+	css?: CSS;
 	className?: string;
 }
 
@@ -49,7 +50,7 @@ const decreaseCSS = css`
 	animation: ${decrease} 2s 0.5s infinite;
 `;
 
-const ProgressIndeterminate: React.FC<IProgressIndeterminate> = ({
+const ProgressIndeterminate: React.FC<ProgressIndeterminateProps> = ({
 	css,
 	className,
 }) => (

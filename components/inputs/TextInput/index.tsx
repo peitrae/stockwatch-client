@@ -3,27 +3,27 @@
 import { ChangeEvent } from 'react';
 import styled from '@emotion/styled';
 
-import TCSSHelper from '@/types/TCSSHelper';
 import Text from '../../typhographies/Text';
 import { size, colors } from './styles';
 import { mb6, mt6 } from '@/styles/margin';
+import { CSS } from '@/types/style';
 
-interface IInput {
-	css?: TCSSHelper;
+interface InputProps {
+	css?: CSS;
 	type?: 'text' | 'email' | 'password';
 	inputSize?: 'md' | 'lg';
 	inputColor?: 'secondary' | 'danger';
 }
 
-interface ITextInput extends IInput {
+interface TextInputProps extends InputProps {
 	label: string;
 	id: string;
 	name?: string;
 	placeholder: string;
 	className?: string;
-	value: string;
+	value?: string;
 	error?: string | null;
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SmallText = styled(Text)`
@@ -32,14 +32,14 @@ const SmallText = styled(Text)`
 	width: max-content;
 `;
 
-const Input = styled.input<IInput>`
+const Input = styled.input<InputProps>`
 	color: ${({ theme }) => theme.colors.secondary.darker};
 	background-color: ${({ theme }) => theme.colors.gray.lightest300};
 	font-size: 16px;
 	width: 100%;
 	transition: border 0.15s, box-shadow 0.15s;
 
-	${({ inputSize = 'md' }: IInput) => size[inputSize]}
+	${({ inputSize = 'md' }: InputProps) => size[inputSize]}
 	${({ inputColor = 'secondary' }) => colors[inputColor]}
 
 	&::placeholder {
@@ -53,7 +53,7 @@ const Input = styled.input<IInput>`
 	}
 `;
 
-const TextInput: React.FC<ITextInput> = ({
+const TextInput: React.FC<TextInputProps> = ({
 	label,
 	id,
 	name,
@@ -63,9 +63,9 @@ const TextInput: React.FC<ITextInput> = ({
 	type = 'text',
 	placeholder = '',
 	inputColor = 'secondary',
-	value,
+	value = "",
 	error,
-	onChange,
+	onChange = () => {},
 }) => (
 	<div css={css} className={className}>
 		{label && (

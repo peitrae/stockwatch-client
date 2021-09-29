@@ -1,6 +1,6 @@
-import IIcon from '@/types/IIcon';
+import { IconProps } from '@/types';
 
-const MenuIcon: React.FC<IIcon> = ({ className = '' }) => (
+const MenuIcon: React.FC<IconProps> = ({ className = '' }) => (
 	<svg
 		viewBox="0 0 24 24"
 		fill="inherit"

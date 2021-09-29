@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { IUserSignUpData } from '@/types/authentication/signup';
 import userAPI from '@/api/user';
+import { UserSignUpData, UserLoginData } from '@/types';
 
 export const register = createAsyncThunk(
 	'user/register',
-	async (userData: IUserSignUpData, { rejectWithValue }) => {
+	async (userData: UserSignUpData, { rejectWithValue }) => {
 		try {
 			const { data } = await userAPI.register(userData);
 
@@ -16,8 +16,22 @@ export const register = createAsyncThunk(
 	}
 );
 
+export const login = createAsyncThunk(
+	'user/login',
+	async (user: UserLoginData, { rejectWithValue }) => {
+		try {
+			const { data } = await userAPI.login(user);
+
+			return data;
+		} catch (err) {
+			return rejectWithValue(err);
+		}
+	}
+);
+
 const actions = {
 	register,
+	login,
 };
 
 export default actions;

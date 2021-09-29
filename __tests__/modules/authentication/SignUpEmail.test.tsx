@@ -2,16 +2,15 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { AxiosError } from 'axios';
 
 import { GlobalWrapper } from '@/pages/_app';
-import SignUpEmail from '@/modules/authentication/SignUpEmail';
 import { generateRandomEmail, generateRandomString } from '@/test/utils';
-import { ISignUpEmail } from '@/modules/authentication/SignUpEmail';
-import IErrorRes from '@/types/IErrorRes';
+import SignUpEmail, { SignUpEmailProps } from '@/modules/authentication/SignUpEmail';
+import { ErrorRes } from '@/types';
 
 jest.mock('@/api/user');
 
 interface IRenderSignUpEmail {
 	isLoading?: boolean;
-	error?: IErrorRes | AxiosError<any> | null;
+	error?: ErrorRes | AxiosError<any> | null;
 	onSubmit?: jest.Mock;
 	anotherMethodsOnClick?: jest.Mock;
 }
@@ -26,7 +25,7 @@ const renderSignUpEmail = (
 ) =>
 	render(
 		<GlobalWrapper>
-			<SignUpEmail {...(params as ISignUpEmail)} />
+			<SignUpEmail {...(params as SignUpEmailProps)} />
 		</GlobalWrapper>
 	);
 
