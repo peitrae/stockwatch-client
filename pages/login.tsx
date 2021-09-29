@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import Page from '@/components/layouts/Page';
 import Navbar from '@/components/layouts/Navbar';
@@ -31,14 +32,19 @@ const Login: NextPage = () => {
 	};
 
 	return (
-		<LoginPage>
-			<Navbar />
-			<LoginSection
-				error={user.error}
-				isLoading={user.loading}
-				onSubmit={onSubmitLogin}
-			/>
-		</LoginPage>
+		<>
+			<Head>
+				<title>Login</title>
+			</Head>
+			<LoginPage>
+				<Navbar />
+				<LoginSection
+					error={user.error}
+					isLoading={user.loading}
+					onSubmit={onSubmitLogin}
+				/>
+			</LoginPage>
+		</>
 	);
 };
 
