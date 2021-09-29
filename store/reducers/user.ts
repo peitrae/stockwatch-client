@@ -36,7 +36,7 @@ const userReducer = createReducer(initialState, (builder) => {
 			state.loading = true;
 		})
 		.addCase(register.fulfilled, (state, { payload }) => {
-			state.data = payload;
+			state.data = { ...state.data, ...payload };
 			state.loading = false;
 			state.error = undefined;
 		})
